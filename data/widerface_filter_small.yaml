@@ -1,0 +1,11 @@
+# Path
+train: /home/hjj/Desktop/dataset/WIDER-FACE/train_remove_small_object
+val: /home/hjj/Desktop/dataset/WIDER-FACE/val
+
+# Keypoints
+kpt_shape: [5, 3]  # number of keypoints, number of dims (2 for x,y or 3 for x,y,visible)
+flip_idx: [1, 0, 2, 4, 3]
+
+# Classes
+names:
+  0: face
