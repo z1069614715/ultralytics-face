@@ -23,6 +23,19 @@
 | SCRFD-2.5GF | 0.67 | 2.53 | 0.938 | 0.922 | 0.785 |
 | yolov8n-pose(baseline) | 3.08 | 8.3 | 0.944 | 0.919 | 0.775 |
 
+| model | Parameters | GFLOPs | Model Size | Easy Val AP | Medium Val AP | Hard Val AP | Inference Time(bs:32) |
+| :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: |
+| yolov8n-pose no-pretrain | 3,078,128 | 8.3 | 6.4m | 0.936 | 0.912 | 0.776 | 0.00086s |
+| filter 5 pixel lowprecision object in 640 images-size | 3,078,128 | 8.3 | 6.4m | 0.938 | 0.917 | 0.779 | 0.00086s |
+| filter 5 pixel lowprecision object in 640 images-size + topk=3 | 3,078,128 | 8.3 | 6.4m | 0.931 | 0.915 | 0.787 | 0.00086s |
+| filter 5 pixel lowprecision object in 640 images-size + topk=3 | 3,078,128 | 8.3 | 6.4m | 0.931 | 0.915 | 0.787 | 0.00086s |
+| filter 5 pixel lowprecision object in 640 images-size + topk=3 + P6 | 4,878,288 | 8.3 | 9.6m | 0.935 | 0.919 | 0.789 | 0.00086s |
+| filter 5 pixel lowprecision object in 640 images-size + topk=3 + P6 + HGStem | 4,899,840 | 10.1 | 9.7m | 0.941 | 0.928 | 0.810 | 0.00136s |
+| filter 5 pixel lowprecision object in 640 images-size + topk=3 + P6 + HGStem + LSCD | 3,887,489 | 8.4 | 7.7m | 0.942 | 0.928 | 0.807 | 0.00130s |
+| filter 5 pixel lowprecision object in 640 images-size + topk=3 + P6 + HGStem + LSCD + BIFPN | 2,386,962 | 7.6 | 4.9m | 0.942 | 0.929 | 0.811 | 0.00135s |
+| filter 5 pixel lowprecision object in 640 images-size + topk=3 + P6 + HGStem + LSCD + BIFPN + Rep | 2,386,962 | 7.6 | 4.9m | 0.943 | 0.929 | 0.814 | 0.00135s |
+| filter 5 pixel lowprecision object in 640 images-size + topk=3 + P6 + HGStem + LSCD + BIFPN + Rep + LMAP 1.5X | 503,686 | 5.0 | 1.3m | 0.937 | 0.922 | 0.809 | 0.00111s |
+
 ### Test Image (image-size:1280,conf:0.25,max_det:1000)
 ![image](data/test_result.jpg)
 
@@ -108,14 +121,14 @@
 #### (yolov8n-pose no-pretrain filter 5 pixel lowprecision object in 640 images-size + TAL + P6 + HGStem) + LSCD
 | model | Parameters | GFLOPs | Model Size | Easy Val AP | Medium Val AP | Hard Val AP | Inference Time(bs:32) |
 | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: |
-| baseline | 4,878,288 | 8.3 | 9.6m | 0.935 | 0.919 | 0.789 | 0.00086s |
+| baseline | 4,899,840 | 10.1 | 9.7m | 0.941 | 0.928 | 0.810 | 0.00136s |
 | LSCD | 3,887,489 | 8.4 | 7.7m | 0.942 | 0.928 | 0.807 | 0.00130s |
 
 #### (yolov8n-pose no-pretrain filter 5 pixel lowprecision object in 640 images-size + TAL + P6 + HGStem + LSCD) + BIFPN
 | model | Parameters | GFLOPs | Model Size | Easy Val AP | Medium Val AP | Hard Val AP | Inference Time(bs:32) |
 | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: |
 | baseline | 3,887,489 | 8.4 | 7.7m | 0.942 | 0.928 | 0.807 | 0.00130s |
-| LSCD | 2,386,962 | 7.6 | 4.9m | 0.942 | 0.929 | 0.811 | 0.00135s |
+| BIFPN | 2,386,962 | 7.6 | 4.9m | 0.942 | 0.929 | 0.811 | 0.00135s |
 
 #### (yolov8n-pose no-pretrain filter 5 pixel lowprecision object in 640 images-size + TAL + P6 + HGStem + LSCD + BIFPN) + Rep
 | model | Parameters | GFLOPs | Model Size | Easy Val AP | Medium Val AP | Hard Val AP | Inference Time(bs:32) |
