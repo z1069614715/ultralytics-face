@@ -1,5 +1,7 @@
 # WIDER-FACE Face Detector Based On YOLOV8
 
+BiliBili-Video:[深度学习改进实验必看！基于YOLOV8的WIDER-FACE改进(轻量化+提点)实验思路讲解](https://www.bilibili.com/video/BV1QJ4m1H7DJ/)
+
 ### Environment
 
     1. conda create -n pytorch_2_1_0_py39 python=3.9 anaconda
